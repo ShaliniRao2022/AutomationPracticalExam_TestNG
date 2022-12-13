@@ -53,7 +53,7 @@ public class BasePage {
 			if(!(w.getText().equals("None")))
 			{
 				list.add(w.getText());
-			}
+							}
 		}
 		return list;
 	}

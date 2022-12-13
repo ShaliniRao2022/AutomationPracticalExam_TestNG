@@ -9,55 +9,51 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class TestNGExamPage extends BasePage {
-	
+
 	WebDriver driver;
 
-		
 	public TestNGExamPage(WebDriver driver) {
-		
+
 		super(driver);
 	}
-	
-	@FindBy(how = How.NAME, using = "categorydata")WebElement textboxElement;
-	@FindBy(how = How.CSS, using = "input[value='Add category']")WebElement addCategoryButtonElement;
-	@FindBy(how = How.CSS, using = "a:last-of-type>span")WebElement lastAddedCategoryElement ;
-	@FindBy(how=How.NAME,using="due_month")WebElement selectMonthElement ;
-	
-	
-	public void addTextInTextbox (String text) {
-		
+
+	@FindBy(how = How.NAME, using = "categorydata")
+	WebElement textboxElement;
+	@FindBy(how = How.CSS, using = "input[value='Add category']")
+	WebElement addCategoryButtonElement;
+	@FindBy(how = How.CSS, using = "a:last-of-type>span")
+	WebElement lastAddedCategoryElement;
+	@FindBy(how = How.NAME, using = "due_month")
+	WebElement selectMonthElement;
+
+	public void addTextInTextbox(String text) {
+
 		textboxElement.sendKeys(text);
-			
+
 	}
-	
-	
+
 	public void clickOnAddCategoryButton() {
-		
+
 		clickWebElement(addCategoryButtonElement);
 	}
-	
-		
-	public String checkIfLastAddedCategoryIsDisplayed(String text)
-	{		System.out.println(lastAddedCategoryElement.getText());
-			return lastAddedCategoryElement.getText();
-		
+
+	public String checkIfLastAddedCategoryIsDisplayed(String text) {
+		System.out.println(lastAddedCategoryElement.getText());
+		return lastAddedCategoryElement.getText();
+
 	}
-	
-	public String getCurrentURLForPage()
-	{
+
+	public String getCurrentURLForPage() {
 		return super.getCurrentURLForPage();
 	}
-	
-		
-	public List<String> getMonths()	{
-		
-		super.waitForOptionsInDropdown(selectMonthElement);
+
+	public List<String> getMonths() {
+
 		return super.getOptionsFromDropdown(selectMonthElement);
 	}
-	
-	
-	public List<String> getTextOfMonths(){
-		
+
+	public List<String> getTextOfMonths() {
+
 		List<String> al = new ArrayList<String>();
 		al.add("Jan");
 		al.add("Feb");
@@ -72,9 +68,7 @@ public class TestNGExamPage extends BasePage {
 		al.add("Nov");
 		al.add("Dec");
 		return al;
-		
+
 	}
-	
-	
 
 }

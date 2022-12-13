@@ -11,14 +11,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserFactory {
-	
+
 	static WebDriver driver;
 	static String browser;
 	static String url;
-	
+
 	public static void readConfig() {
-		//InputStream //BufferedReader //FileReader //Scanner
-		
+		// InputStream //BufferedReader //FileReader //Scanner
+
 		try {
 			InputStream input = new FileInputStream("src\\main\\java\\config\\config.properties");
 			Properties prop = new Properties();
@@ -26,15 +26,15 @@ public class BrowserFactory {
 			browser = prop.getProperty("browser");
 			System.out.println("Used Browser: " + browser);
 			url = prop.getProperty("url");
-			
-		}catch(IOException e) {
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public static WebDriver init() {
-		
+
 		readConfig();
 
 		if (browser.equalsIgnoreCase("chrome")) {
